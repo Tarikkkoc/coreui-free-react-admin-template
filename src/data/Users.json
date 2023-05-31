@@ -1,0 +1,28 @@
+{
+  "users": [
+{
+            "userId":1,
+            "username":"tarikkoc",
+            "email":"tarikkoc@gmail.com",
+            "password":"atk123"
+        },
+        {
+            "userId":2,
+            "username":"ekindeniz",
+            "email":"ekindeniz@gmail.com",
+            "password":"edk123"
+        },
+        {
+            "userId":3,
+            "username":"safatur",
+            "email":"safatur@gmail.com",
+            "password":"mst123"
+        },
+        {
+            "userId":4,
+            "username":"atarikk",
+            "email":"tarik@gmail.com",
+            "password":"tk123"
+        }    
+  ]
+}

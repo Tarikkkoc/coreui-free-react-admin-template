@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import data from '../../../data/Users.json'
 import {
   CButton,
   CCard,
@@ -17,6 +18,23 @@ import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const Login = () => {
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleLogin = () => {
+    try {
+      const user = data.users.find((u) => u.username === username && u.password === password)
+      console.log(user)
+      if (user) {
+        navigate('/#/dashboard')
+      } else {
+        alert('Username or password is wrong!')
+      }
+    } catch {
+      alert('Error')
+    }
+  }
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -32,13 +50,18 @@ const Login = () => {
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Username"
+                        autoComplete="username"
+                      />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
                         <CIcon icon={cilLockLocked} />
                       </CInputGroupText>
                       <CFormInput
+                        onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
@@ -46,7 +69,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
+                        <CButton onClick={handleLogin} color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
