@@ -4,25 +4,29 @@
             "userId":1,
             "username":"tarikkoc",
             "email":"tarikkoc@gmail.com",
-            "password":"atk123"
+            "password":"atk123",
+            "img":"https://avatars.githubusercontent.com/u/91598714?s=400&u=dd452ef102f166615175f6fea6b403d5cd952f5d&v=4"
         },
         {
             "userId":2,
             "username":"ekindeniz",
             "email":"ekindeniz@gmail.com",
-            "password":"edk123"
+            "password":"edk123",
+            "img":"https://res.cloudinary.com/dz209s6jk/image/upload/v1609604413/Avatars/zucov5cbufhwjg4ri7cb.jpg"
         },
         {
             "userId":3,
             "username":"safatur",
             "email":"safatur@gmail.com",
-            "password":"mst123"
+            "password":"mst123",
+            "img":"https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
         },
         {
             "userId":4,
             "username":"atarikk",
             "email":"tarik@gmail.com",
-            "password":"tk123"
+            "password":"tk123",
+            "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIlce92OaukmAn9IB0ERXQ_0vyT2K8LbXkw12tDoJYHBdYdiLhVm3UUrDlSLFKIlp9gwY&usqp=CAU"
         }    
   ]
 }

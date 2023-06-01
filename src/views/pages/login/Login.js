@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import data from '../../../data/Users.json'
+
 import {
   CButton,
   CCard,
@@ -17,22 +19,34 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
-const Login = () => {
-  const navigate = useNavigate()
+const Login = ({ handleLogin }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = () => {
-    try {
-      const user = data.users.find((u) => u.username === username && u.password === password)
-      console.log(user)
-      if (user) {
-        navigate('/#/dashboard')
-      } else {
-        alert('Username or password is wrong!')
-      }
-    } catch {
-      alert('Error')
+  // const handleLogin = () => {
+  //   try {
+  //     const user = data.users.find((u) => u.username === username && u.password === password)
+  //     console.log(user)
+  //     if (user) {
+  //       navigate('/#/dashboard')
+  //     } else {
+  //       alert('Username or password is wrong!')
+  //     }
+  //   } catch {
+  //     alert('Error')
+  //   }
+  // }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   handleLogin(username, password)
+  // }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const user = data.users.find((u) => u.username === username && u.password === password)
+    if (user) {
+      handleLogin(username, password)
+    } else {
+      alert('Username or password is wrong!')
     }
   }
   return (
@@ -43,7 +57,7 @@ const Login = () => {
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
-                  <CForm>
+                  <CForm onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     <p className="text-medium-emphasis">Sign In to your account</p>
                     <CInputGroup className="mb-3">
@@ -69,7 +83,13 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton onClick={handleLogin} color="primary" className="px-4">
+                        <CButton
+                          type="submit"
+                          // onSubmit={handleSubmit}
+                          // onClick={handleLogin}
+                          color="primary"
+                          className="px-4"
+                        >
                           Login
                         </CButton>
                       </CCol>
@@ -105,5 +125,7 @@ const Login = () => {
     </div>
   )
 }
-
+Login.propTypes = {
+  handleLogin: PropTypes.func.isRequired,
+}
 export default Login

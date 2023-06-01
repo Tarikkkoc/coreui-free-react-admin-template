@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
 import {
   CContainer,
   CHeader,
@@ -18,7 +19,7 @@ import { AppBreadcrumb } from './index'
 import { AppHeaderDropdown } from './header/index'
 import { logo } from 'src/assets/brand/logo'
 
-const AppHeader = () => {
+const AppHeader = ({ currentUser }) => {
   const dispatch = useDispatch()
   const sidebarShow = useSelector((state) => state.sidebarShow)
 
@@ -47,25 +48,9 @@ const AppHeader = () => {
             <CNavLink href="#">Settings</CNavLink>
           </CNavItem>
         </CHeaderNav>
-        <CHeaderNav>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilBell} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilList} size="lg" />
-            </CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">
-              <CIcon icon={cilEnvelopeOpen} size="lg" />
-            </CNavLink>
-          </CNavItem>
-        </CHeaderNav>
+
         <CHeaderNav className="ms-3">
-          <AppHeaderDropdown />
+          <AppHeaderDropdown currentUser={currentUser} />
         </CHeaderNav>
       </CContainer>
       <CHeaderDivider />
@@ -75,5 +60,8 @@ const AppHeader = () => {
     </CHeader>
   )
 }
+// AppHeader.propTypes = {
+//   currentUser: PropTypes.array, // currentUser prop'unun bir obje olduğunu belirtin veya uygun bir proptypes tanımını kullanın
+// }
 
 export default AppHeader
