@@ -42,10 +42,10 @@ const AppHeader = ({ currentUser }) => {
             </CNavLink>
           </CNavItem>
           <CNavItem>
-            <CNavLink href="#">Users</CNavLink>
+            <CNavLink href="#">Tables</CNavLink>
           </CNavItem>
           <CNavItem>
-            <CNavLink href="#">Settings</CNavLink>
+            <CNavLink href="#">Report</CNavLink>
           </CNavItem>
         </CHeaderNav>
 
