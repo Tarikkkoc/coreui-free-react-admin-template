@@ -41,12 +41,6 @@ const AppHeader = ({ currentUser }) => {
               Dashboard
             </CNavLink>
           </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">Tables</CNavLink>
-          </CNavItem>
-          <CNavItem>
-            <CNavLink href="#">Report</CNavLink>
-          </CNavItem>
         </CHeaderNav>
 
         <CHeaderNav className="ms-3">

@@ -1,0 +1,15 @@
+{
+    "users": [
+      {
+        "name": "Tarık",
+        "surname": "Koç",
+        "email": "tarikoc@gmail.com"
+      },
+      {
+        "name": "Şenol",
+        "surname": "Güneş",
+        "email": "senolgunes@gmail.com"
+      }
+    ]
+  }
+  

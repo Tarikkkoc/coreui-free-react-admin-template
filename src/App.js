@@ -1,8 +1,10 @@
 import React, { useState, Suspense } from 'react'
 import { HashRouter, Route, Routes, useNavigate } from 'react-router-dom'
+import './App.css'
 import './scss/style.scss'
 import data from './data/Users.json'
 import PropTypes from 'prop-types'
+import Report1 from './components/Report1'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -28,7 +30,7 @@ const App = () => {
     if (user) {
       setCurrentUser(user)
       // window.location.href = '/#/dashboard'
-      navigate('/dashboard')
+      navigate('/report1')
     } else {
       alert('Username or password is wrong!')
     }
@@ -51,10 +53,13 @@ const App = () => {
       <Routes>
         <Route
           exact
-          path="/dashboard"
+          path="/:component"
           name="Home"
           element={<DefaultLayout currentUser={currentUser} />}
         />
+      </Routes>
+      <Routes>
+        <Route exact path="/report1" name="report1" element={<Report1 />} />
       </Routes>
     </Suspense>
   )

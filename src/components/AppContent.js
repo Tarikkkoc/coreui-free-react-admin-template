@@ -5,30 +5,20 @@ import { CContainer, CSpinner } from '@coreui/react'
 // routes config
 import routes from '../routes'
 import Dashboard from './../views/dashboard/Dashboard'
+import Report1 from './Report1'
+import Report2 from './Report2'
+import Form from '../Form'
 
-const AppContent = () => {
+const AppContent = ({ component }) => {
   return (
-    // <CContainer lg>
-    //   <Suspense fallback={<CSpinner color="primary" />}>
-    //     <Routes>
-    //       {routes.map((route, idx) => {
-    //         return (
-    //           route.element && (
-    //             <Route
-    //               key={idx}
-    //               path={route.path}
-    //               exact={route.exact}
-    //               name={route.name}
-    //               element={<route.element />}
-    //             />
-    //           )
-    //         )
-    //       })}
-    //       <Route path="/" element={<Navigate to="dashboard" replace />} />
-    //     </Routes>
-    //   </Suspense>
-    // </CContainer>
-    <Dashboard />
+    <div>
+      {/* <Dashboard />
+      <Report1 /> */}
+      {component === 'dashboard' && <Dashboard />}
+      {component === 'report1' && <Report1 />}
+      {component === 'report2' && <Report2 />}
+      {component === 'form' && <Form />}
+    </div>
   )
 }
 
