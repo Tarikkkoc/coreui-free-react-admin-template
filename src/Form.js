@@ -6,27 +6,6 @@ const Form = () => {
   const [surname, setSurname] = useState('')
   const [email, setEmail] = useState('')
 
-  // const handleSave = () => {
-  //   const newData = {
-  //     name: name,
-  //     surname: surname,
-  //     email: email,
-  //   }
-
-  //   // var jsonString = JSON.stringify(newData)
-  //   // var fileWriter = new FileWriter('./data/Persons.json')
-  //   // fileWriter.write(jsonString)
-  //   // fileWriter.close()
-
-  //   var jsonString = JSON.stringify(newData)
-  //   var blob = new Blob([jsonString], { type: 'application/json' })
-
-  //   var downloadLink = document.createElement('a')
-  //   downloadLink.href = URL.createObjectURL(blob)
-  //   downloadLink.download = 'data.json'
-
-  //   downloadLink.click()
-  // }
   const handleSave = () => {
     const newData = {
       name: name,
@@ -34,35 +13,56 @@ const Form = () => {
       email: email,
     }
 
-    // JSON dosyasını güncelleme isteği gönder
-    fetch('./data/Persons.json', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newData),
-    })
-      .then((response) => {
-        if (response.ok) {
-          // Güncelleme başarılıysa dosyayı indir
-          return fetch('./data/Persons.json')
-        } else {
-          throw new Error('Data update failed')
-        }
-      })
-      .then((response) => response.blob())
-      .then((blob) => {
-        // Blob'u indir
-        const downloadLink = document.createElement('a')
-        downloadLink.href = URL.createObjectURL(blob)
-        downloadLink.download = 'data.json'
-        downloadLink.click()
-      })
-      .catch((error) => {
-        console.error('Error updating data', error)
-        // Hata durumunda gerekirse hata yönetimi yapabilirsiniz
-      })
+    // var jsonString = JSON.stringify(newData)
+    // var fileWriter = new FileWriter('./data/Persons.json')
+    // fileWriter.write(jsonString)
+    // fileWriter.close()
+
+    var jsonString = JSON.stringify(newData)
+    var blob = new Blob([jsonString], { type: 'application/json' })
+
+    var downloadLink = document.createElement('a')
+    downloadLink.href = URL.createObjectURL(blob)
+    downloadLink.download = 'data.json'
+
+    downloadLink.click()
   }
+  // const handleSave = () => {
+  //   const newData = {
+  //     name: name,
+  //     surname: surname,
+  //     email: email,
+  //   }
+
+  //   // JSON dosyasını güncelleme isteği gönder
+  //   fetch('./data/Persons.json', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(newData),
+  //   })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         // Güncelleme başarılıysa dosyayı indir
+  //         return fetch('./data/Persons.json')
+  //       } else {
+  //         throw new Error('Data update failed')
+  //       }
+  //     })
+  //     .then((response) => response.blob())
+  //     .then((blob) => {
+  //       // Blob'u indir
+  //       const downloadLink = document.createElement('a')
+  //       downloadLink.href = URL.createObjectURL(blob)
+  //       downloadLink.download = 'data.json'
+  //       downloadLink.click()
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error updating data', error)
+  //       // Hata durumunda gerekirse hata yönetimi yapabilirsiniz
+  //     })
+  // }
 
   return (
     <div className="max-w-md mx-auto p-4">
